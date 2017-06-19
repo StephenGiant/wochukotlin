@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#FF4081</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_green">#48B033</color>
+    <color name="new_main_page_grid_price">#F96D16</color>
+    <color name="new_main_page_grid_market_price">#999999</color>
+    <color name="list_goods_text_select">#f57d2f</color> <!-- 分类大组item文字颜色 (橙色) -->
+    <color name="list_goods_text_normal">#666666</color> <!-- 分类大组item文字颜色 -->
+    <color name="list_goods_bg_normal">#f4f0ec</color> <!-- 分类大组item背景色 -->
 </resources>
