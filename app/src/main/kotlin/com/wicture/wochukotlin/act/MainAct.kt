@@ -9,7 +9,6 @@ import android.view.Menu
 import android.view.MenuItem
 import com.wicture.com.wochukotlin.business.BaseViewHolder
 import com.wicture.wochukotlin.R
-import com.wicture.wochukotlin.extension.ToastText
 import com.wicture.wochukotlin.items.business.RootCategoryAdapter
 import com.wicture.wochukotlin.net.BaseModule
 import com.wicture.wochukotlin.net.ServiceApi
@@ -26,10 +25,11 @@ class MainAct : BaseActivity() {
 
     }
 var rv: RecyclerView? = null
+
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_scrolling)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
-        var  recyclerView = findViewById(R.id.rv_category) as RecyclerView
+//        var  recyclerView = findViewById(R.id.rv_category) as RecyclerView
         rv = findViewById(R.id.rv_category) as RecyclerView
         toolbar.title = "团购"
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"))
@@ -39,7 +39,7 @@ var rv: RecyclerView? = null
             Snackbar.make(view, "参加团购成功！", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         })
-        getDataFromServer(recyclerView)
+        getDataFromServer()
             BaseViewHolder(toolbar)
     }
 
@@ -61,7 +61,7 @@ var rv: RecyclerView? = null
         }
         return super.onOptionsItemSelected(item)
     }
-    fun getDataFromServer(recyclerView:RecyclerView){
+    fun getDataFromServer(){
         var jsonObject = JSONObject()
         jsonObject.put("parentId",0)
         val serviceApi = BaseModule().retrofit_raw_serverhost().create(ServiceApi::class.java)
@@ -74,7 +74,7 @@ var rv: RecyclerView? = null
 
                 },{ error ->
                     error.printStackTrace()
-                    ToastText(error.toString())
+//                    ToastText(error.toString())
                 })
     }
 

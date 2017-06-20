@@ -12,7 +12,7 @@ import com.wicture.wochukotlin.data.Category
 import java.util.List
 
 /**
- * Created by Administrator on 2017/6/9.
+ * Created by qianpeng on 2017/6/9.
  */
 class RootCategoryAdapter : MyBaseAdapter<Category, RootCategoryAdapter.CategoryViewHolder> {
     constructor(activity: Activity, data: List<Category>) : super(activity, data)
