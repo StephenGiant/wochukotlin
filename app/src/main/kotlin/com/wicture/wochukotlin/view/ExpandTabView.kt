@@ -51,5 +51,8 @@ init {
         }
 
     }
+    private fun startAnimation(){
+        
+    }
 
 }
