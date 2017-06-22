@@ -9,4 +9,9 @@
     <color name="list_goods_text_select">#f57d2f</color> <!-- 分类大组item文字颜色 (橙色) -->
     <color name="list_goods_text_normal">#666666</color> <!-- 分类大组item文字颜色 -->
     <color name="list_goods_bg_normal">#f4f0ec</color> <!-- 分类大组item背景色 -->
+    <color name="text_light">#c6c6c6</color> <!-- 文字淡灰色 -->
+    <color name="text_base">#6a6a6a</color> <!-- 文字淡灰色 -->
+    <color name="text_tab">#898989</color> <!-- 文字淡灰色 -->
+    <color name="text_cate">#676767</color> <!-- 文字淡灰色 -->
+    <color name="white">#ffffff</color>
 </resources>

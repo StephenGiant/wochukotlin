@@ -1,4 +1,4 @@
-package com.wicture.com.wochukotlin.view
+package com.wicture.wochukotlin.view
 
 import android.app.Activity
 import android.content.Context
@@ -21,7 +21,7 @@ class ExpandTabView :LinearLayout ,PopupWindow.OnDismissListener{
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
     var width:Int?
     var height:Int?
-
+    private val SMALL = 0
 
 init {
     //构造方法调用后调用
@@ -52,7 +52,7 @@ init {
 
     }
     private fun startAnimation(){
-        
+
     }
 
 }

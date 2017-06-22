@@ -4,16 +4,16 @@
     android:layout_height="wrap_content">
 <TextView
     android:id="@+id/tv_name"
-    android:gravity="center_horizontal"
+    android:gravity="left"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="14sp"
     android:text="你大爷的"
     />
-    <TextView
+    <ImageView
         android:id="@+id/icon_url"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:layout_height="40dp"
+
         />
 </LinearLayout>

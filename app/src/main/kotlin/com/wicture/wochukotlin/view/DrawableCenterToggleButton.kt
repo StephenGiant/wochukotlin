@@ -1,4 +1,4 @@
-package com.wicture.com.wochukotlin.view
+package com.wicture.wochukotlin.view
 
 import android.content.Context
 import android.graphics.Canvas

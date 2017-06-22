@@ -12,13 +12,13 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingRight="@dimen/large_15">
+        android:paddingRight="15dp">
 
         <ImageView
             android:layout_width="18dip"
             android:layout_height="18dip"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/normal_10"
+            android:layout_marginLeft="10dp"
             android:src="@drawable/ic_back_grey" />
     </LinearLayout>
 
@@ -32,7 +32,7 @@
         android:singleLine="true"
         android:text="dasas"
         android:textColor="@color/text_base"
-        android:textSize="@dimen/size_big" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_control"
@@ -40,18 +40,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/normal_10"
+        android:layout_marginRight="10dp"
         android:ellipsize="end"
         android:maxLength="10"
         android:singleLine="true"
         android:text="xvvxvx"
         android:textColor="@color/text_base"
-        android:textSize="@dimen/size_normal" />
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/color_cccccc" />
+        android:background="#666666" />
 
 </RelativeLayout>

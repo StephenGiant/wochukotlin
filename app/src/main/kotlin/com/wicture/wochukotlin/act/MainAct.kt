@@ -1,4 +1,5 @@
 package com.wicture.wochukotlin.act
+
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
@@ -8,13 +9,15 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import com.wicture.com.wochukotlin.business.BaseViewHolder
+import com.wicture.wochukotlin.MyApplication
 import com.wicture.wochukotlin.R
 import com.wicture.wochukotlin.items.business.RootCategoryAdapter
-import com.wicture.wochukotlin.net.BaseModule
 import com.wicture.wochukotlin.net.ServiceApi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.json.JSONObject
+import javax.inject.Inject
+
 
 /**
  * Created by qianpeng on 2017/6/6.
@@ -24,8 +27,10 @@ class MainAct : BaseActivity() {
         super.onCreate(savedInstanceState)
 
     }
-var rv: RecyclerView? = null
 
+    @Inject
+    lateinit var apiservice: ServiceApi//注入apiservice,省去了业务代码在activity中使用
+    var rv: RecyclerView? = null
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_scrolling)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
@@ -39,8 +44,12 @@ var rv: RecyclerView? = null
             Snackbar.make(view, "参加团购成功！", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         })
+
+        BaseViewHolder(toolbar)
+//        DaggerMainComponent.builder().build().inject(this)
+        (application as MyApplication).getApiComponent().inject(this)
         getDataFromServer()
-            BaseViewHolder(toolbar)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -50,9 +59,7 @@ var rv: RecyclerView? = null
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         val id = item.itemId
 
 
@@ -61,18 +68,22 @@ var rv: RecyclerView? = null
         }
         return super.onOptionsItemSelected(item)
     }
-    fun getDataFromServer(){
+
+    /**
+     * 获取数据
+     */
+    fun getDataFromServer() {
         var jsonObject = JSONObject()
-        jsonObject.put("parentId",0)
-        val serviceApi = BaseModule().retrofit_raw_serverhost().create(ServiceApi::class.java)
-        serviceApi.getCateGory(jsonObject.toString()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe ({ coments->
-                    println(coments.data[0].name)
+        jsonObject.put("parentId", 0)
+
+        apiservice.getCateGory(jsonObject.toString()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ coments ->
+//                    println(coments.data[0].name)
 //                    recyclerView.setAdapter(RootCategoryAdapter(this,coments.data))
 
-                 rv!!.setAdapter(RootCategoryAdapter(this,coments.data))
+                    rv!!.setAdapter(RootCategoryAdapter(this, coments.data))
 
-                },{ error ->
+                }, { error ->
                     error.printStackTrace()
 //                    ToastText(error.toString())
                 })

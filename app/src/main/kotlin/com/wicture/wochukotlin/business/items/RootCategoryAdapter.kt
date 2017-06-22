@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.wicture.com.wochukotlin.business.MyBaseAdapter
 import com.wicture.wochukotlin.R
 import com.wicture.wochukotlin.data.Category
@@ -24,12 +26,18 @@ class RootCategoryAdapter : MyBaseAdapter<Category, RootCategoryAdapter.Category
 
     override fun bindItemData(holder: CategoryViewHolder, data: Category, position: Int) {
      holder.tv_name.text = data.name
-        holder.tv_url.text = data.iconList[0].url
+        try {
+
+
+        Glide.with(mActivity).load(data.iconList[0].url).asBitmap().into(holder.tv_url)
+        }catch (e :Exception){
+            e.printStackTrace()
+        }
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
      val tv_name = (itemView.findViewById(R.id.tv_name)) as TextView
-        val tv_url = itemView.findViewById(R.id.icon_url) as TextView
+        val tv_url = itemView.findViewById(R.id.icon_url) as ImageView
     }
 }
