@@ -1,5 +1,6 @@
 package com.wicture.wochukotlin.act
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
@@ -8,9 +9,9 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import com.wicture.com.wochukotlin.business.BaseViewHolder
-import com.wicture.wochukotlin.MyApplication
+import butterknife.bindView
 import com.wicture.wochukotlin.R
+import com.wicture.wochukotlin.WochuApplication
 import com.wicture.wochukotlin.items.business.RootCategoryAdapter
 import com.wicture.wochukotlin.net.ServiceApi
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -27,29 +28,29 @@ class MainAct : BaseActivity() {
         super.onCreate(savedInstanceState)
 
     }
-
+val toolBar:Toolbar by bindView(R.id.toolbar)
     @Inject
     lateinit var apiservice: ServiceApi//注入apiservice,省去了业务代码在activity中使用
     var rv: RecyclerView? = null
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_scrolling)
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
+
 //        var  recyclerView = findViewById(R.id.rv_category) as RecyclerView
         rv = findViewById(R.id.rv_category) as RecyclerView
-        toolbar.title = "团购"
-        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"))
-        setSupportActionBar(toolbar)
+        toolBar.title = "团购"
+        toolBar.setTitleTextColor(Color.parseColor("#FFFFFF"))
+        setSupportActionBar(toolBar)
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener({ view ->
             Snackbar.make(view, "参加团购成功！", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         })
 
-        BaseViewHolder(toolbar)
-//        DaggerMainComponent.builder().build().inject(this)
-        (application as MyApplication).getApiComponent().inject(this)
-        getDataFromServer()
 
+//        DaggerMainComponent.builder().build().inject(this)
+        (application as WochuApplication).getApiComponent().inject(this)
+        getDataFromServer()
+        startActivity(Intent(this,TestAct::class.java))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

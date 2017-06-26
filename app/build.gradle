@@ -25,14 +25,14 @@ android {
     buildTypes {
         debug{
 
-//            buildConfigField "String", "API_SERVER_HOST", "\"http://192.168.15.230:9999\""
-//            buildConfigField "String", "PAY_SERVER_HOST","\"http://dev1.i-kitchen.cn:9093\""
-//            buildConfigField "String", "CART_HOST","\"http://192.168.15.230:9999\""
-//            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"http://hshop.wochu.cn\""
-            buildConfigField "String", "API_SERVER_HOST", "\"https://api5.wochu.cn/\""
-            buildConfigField "String", "PAY_SERVER_HOST","\"https://api4.wochu.cn/\""
-            buildConfigField "String", "CART_HOST","\"https://api5.wochu.cn/\""
-            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"https://wmall.wochu.cn/\""
+            buildConfigField "String", "API_SERVER_HOST", "\"http://192.168.15.230:9999\""
+            buildConfigField "String", "PAY_SERVER_HOST","\"http://dev1.i-kitchen.cn:9093\""
+            buildConfigField "String", "CART_HOST","\"http://192.168.15.230:9999\""
+            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"http://hshop.wochu.cn\""
+//            buildConfigField "String", "API_SERVER_HOST", "\"https://api5.wochu.cn/\""
+//            buildConfigField "String", "PAY_SERVER_HOST","\"https://api4.wochu.cn/\""
+//            buildConfigField "String", "CART_HOST","\"https://api5.wochu.cn/\""
+//            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"https://wmall.wochu.cn/\""
 //            buildConfigField "String", "pi","\"Android\""
 //            buildConfigField "String", "campaign","\"40600\""
         }
@@ -52,6 +52,9 @@ android {
 //            buildConfigField "String", "campaign","\"40601\""
 
         }
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -82,5 +85,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.dagger:dagger:2.9'
     kapt 'com.google.dagger:dagger-compiler:2.9'
+    kapt "com.android.databinding:compiler:2.3.2"
     androidTestCompile 'junit:junit:4.12'
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import butterknife.bindView
 import com.bumptech.glide.Glide
 import com.wicture.com.wochukotlin.business.MyBaseAdapter
 import com.wicture.wochukotlin.R
@@ -36,8 +37,7 @@ class RootCategoryAdapter : MyBaseAdapter<Category, RootCategoryAdapter.Category
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-     val tv_name = (itemView.findViewById(R.id.tv_name)) as TextView
-        val tv_url = itemView.findViewById(R.id.icon_url) as ImageView
+        val tv_name:TextView  by bindView(R.id.tv_name)
+        val tv_url :ImageView by bindView(R.id.icon_url)
     }
 }

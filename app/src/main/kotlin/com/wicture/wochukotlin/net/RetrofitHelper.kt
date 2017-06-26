@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
  * Created by qianpeng on 2017/6/6.
  * 网络请求基本模型
  */
-class BaseModule {
+class RetrofitHelper {
 
     fun okhttp_raw_client(): OkHttpClient{
         val okhttpClient = OkHttpClient.Builder().addNetworkInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build()

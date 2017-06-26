@@ -1,6 +1,7 @@
 package com.wicture.wochukotlin.di
 
 import com.wicture.wochukotlin.act.MainAct
+import com.wicture.wochukotlin.act.TestAct
 import dagger.Component
 
 /**
@@ -10,4 +11,5 @@ import dagger.Component
 interface ApiComponent {
 
     fun inject (mainAct: MainAct)
+    fun inject (testAct: TestAct)
 }

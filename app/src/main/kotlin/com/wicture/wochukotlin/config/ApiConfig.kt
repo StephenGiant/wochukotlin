@@ -46,4 +46,19 @@ object ApiConfig {
      * 获取大分类目录（一级&二级分类）
      */
     const val URL_CATEGORY_LIST = URL_DIR + URL_GOODS + "GetCategoryListFromPid"
+
+
+    //*******************登陆注册 ****************
+    /**
+     * 登陆
+     */
+    const val URL_LOGIN = "token"
+    /**
+     * 注册
+     */
+    const val URL_REGISTER = URL_DIR + URL_MEMBER + "register"
+
+    //*******************购物车 ******************
+
+    const val URL_CART_LIST = URL_DIR + URL_CART + "list"
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="demo.wicture.com.trytry.act.MainAct">
+    tools:context="com.wicture.wochukotlin.act.MainAct">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"

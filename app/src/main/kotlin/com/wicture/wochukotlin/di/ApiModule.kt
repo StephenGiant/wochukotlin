@@ -6,10 +6,12 @@ import dagger.Provides
 import retrofit2.Retrofit
 
 /**
- * Created by Administrator on 2017/6/22.
+ * Created by qianpeng on 2017/6/22.
  */
 @Module
 class ApiModule (val retrofit: Retrofit){
     @Provides
-    fun provideApi()= retrofit.create(ServiceApi::class.java)
+    fun provideServiceApi()= retrofit.create(ServiceApi::class.java)
+//    @Provides
+//    fun provideCartApi() = retrofit.create(CartApi::class.java)
 }

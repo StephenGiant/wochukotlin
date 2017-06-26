@@ -20,6 +20,6 @@ fun Activity.ToastText(text:String){
 }
 fun Activity.drive(text:String){
     Toast.makeText(this,
-            text+"http://91porn.com/index.php",
+            text+"www.baidu.com",
             Toast.LENGTH_SHORT).show()
 }
