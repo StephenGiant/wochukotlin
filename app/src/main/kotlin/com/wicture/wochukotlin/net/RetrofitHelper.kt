@@ -19,6 +19,11 @@ class RetrofitHelper {
         val okhttpClient = OkHttpClient.Builder().addNetworkInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build()
          return okhttpClient
     }
+    fun okhttp_with_token(token: String):OkHttpClient=
+            OkHttpClient.Builder().addNetworkInterceptor(HttpLoggingInterceptor().
+                    setLevel(HttpLoggingInterceptor.Level.BODY)).addNetworkInterceptor(TokenInterceptor(token)).
+                    connectTimeout(20,TimeUnit.SECONDS).
+                    readTimeout(20,TimeUnit.SECONDS).build()
     fun okhttp_json_client(): OkHttpClient =
         OkHttpClient.Builder().addNetworkInterceptor(HttpLoggingInterceptor().
                 setLevel(HttpLoggingInterceptor.Level.BODY)).connectTimeout(20,TimeUnit.SECONDS).
@@ -28,7 +33,10 @@ class RetrofitHelper {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).
             build()
 
-
+    fun retrofit_withToken(token:String) = Retrofit.Builder().
+            baseUrl(ApiConfig.SERVER_HOST).client(okhttp_with_token(token)). addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).
+            build()
 
 
 }

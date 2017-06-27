@@ -18,7 +18,7 @@ import java.io.InputStream
  */
 class WochuGlideModule : GlideModule{
     override fun registerComponents(context: Context?, glide: Glide?) {
-        glide!!.register(GlideUrl::class.java, InputStream::class.java,null)
+        glide!!.register(GlideUrl::class.java, InputStream::class.java,OkHttpUrlLoader.Factory())
     }
 
     override fun applyOptions(context: Context?, builder: GlideBuilder?) {

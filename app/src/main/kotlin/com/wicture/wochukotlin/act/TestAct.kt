@@ -1,5 +1,6 @@
 package com.wicture.wochukotlin.act
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -23,12 +24,18 @@ class TestAct : BaseActivity(),View.OnClickListener {
     val ediTtext_password:EditText by bindView(R.id.et_password)
     val btn_login :Button by bindView(R.id.btn_login)
     @Inject
-    lateinit var serviceApi:ServiceApi
+    lateinit var serviceApi: ServiceApi
+//    @Inject
+//    lateinit var cartApi:CartApi
+//    @Inject
+//    lateinit var accountApi:AccountApi
     lateinit var apiComponent:ApiComponent
+    lateinit var application:WochuApplication
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.act_login)
         btn_login.setOnClickListener(this)
-         apiComponent = (application as WochuApplication).getApiComponent()
+        application = WochuApplication.instance()
+         apiComponent = (getApplication()as WochuApplication).getApiComponent()
         apiComponent.inject(this)
     }
 
@@ -46,15 +53,30 @@ class TestAct : BaseActivity(),View.OnClickListener {
                 .add("grant_type", "password").build()
         serviceApi.loginAccount(formBody).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io()).subscribe ({ login ->
-            println(login.access_token)
+//            application.setToken(login.access_token)
+          println(login.access_token)
             ToastText("登陆成功")
+//            val jsonObject = JSONObject().put("deviceNumber", Utils.getDeviceid(this))
+            application.token = login.access_token
+           setResult(Activity.RESULT_OK)
             finish()
+//            application.getApi_TokenComponent(login.access_token).inject(this)
+//            cartApi.getCartList(ApiConfig.URL_CART_COUNT,jsonObject).observeOn(AndroidSchedulers.mainThread())
+//                    .subscribeOn(Schedulers.io()).subscribe ({
+//                json ->
+//                println(json.toString())
+//            },{
+//                e ->
+//                e.printStackTrace()
+//            })
 
 
         },{
             error ->
             error.printStackTrace()
         })
+
+
     }
 
     override fun onClick(p0: View?) {

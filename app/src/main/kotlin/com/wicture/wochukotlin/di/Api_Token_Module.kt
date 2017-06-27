@@ -2,16 +2,15 @@ package com.wicture.wochukotlin.di
 
 import com.wicture.wochukotlin.net.CartApi
 import com.wicture.wochukotlin.net.RetrofitHelper
-import com.wicture.wochukotlin.net.ServiceApi
 import dagger.Module
 import dagger.Provides
 
 /**
- * Created by qianpeng on 2017/6/22.
+ * Created by Administrator on 2017/6/27.
  */
 @Module
-class ApiModule (){
+class Api_Token_Module(var token:String) {
     @Provides
-    fun provideServiceApi()= RetrofitHelper().retrofit_raw_serverhost().create(ServiceApi::class.java)
+    fun provideCartApi()= RetrofitHelper().retrofit_withToken(token).create(CartApi::class.java)
 
 }

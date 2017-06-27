@@ -10,6 +10,6 @@ import dagger.Component
 @Component(modules = arrayOf(ApiModule::class))
 interface ApiComponent {
 
-    fun inject (mainAct: MainAct)
+
     fun inject (testAct: TestAct)
 }

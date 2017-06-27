@@ -46,7 +46,8 @@ object ApiConfig {
      * 获取大分类目录（一级&二级分类）
      */
     const val URL_CATEGORY_LIST = URL_DIR + URL_GOODS + "GetCategoryListFromPid"
-
+    const val URL_SECOND_CATEGORY_LIST = URL_DIR + URL_GOODS + "GetCategoryListByMenuId"
+    const val URL_SEARCH_BY_CATE_ID = URL_DIR + URL_GOODS + "SearchByCategoryId"
 
     //*******************登陆注册 ****************
     /**
@@ -59,6 +60,19 @@ object ApiConfig {
     const val URL_REGISTER = URL_DIR + URL_MEMBER + "register"
 
     //*******************购物车 ******************
+    const val URLCART = URL_DIR+ URL_CART
+    /**
+     * 获取购物车商品列表
+     */
+    const val URL_CART_LIST_NEW =  "list"
+    /**
+     * 创建购物车
+     */
+    const val URL_CART_ADD =  "create"
+    /**
+     * 获取购物车商品数量
+     */
+    const val URL_CART_COUNT =  "GetCartGoodsCount"
 
-    const val URL_CART_LIST = URL_DIR + URL_CART + "list"
+
 }

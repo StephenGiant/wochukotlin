@@ -12,8 +12,9 @@ import android.view.MenuItem
 import butterknife.bindView
 import com.wicture.wochukotlin.R
 import com.wicture.wochukotlin.WochuApplication
-import com.wicture.wochukotlin.items.business.RootCategoryAdapter
-import com.wicture.wochukotlin.net.ServiceApi
+import com.wicture.wochukotlin.config.ApiConfig
+import com.wicture.wochukotlin.net.CartApi
+import com.wicture.wochukotlin.utils.Utils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.json.JSONObject
@@ -29,8 +30,11 @@ class MainAct : BaseActivity() {
 
     }
 val toolBar:Toolbar by bindView(R.id.toolbar)
+//    @Inject
+//    lateinit var apiservice: ServiceApi//注入apiservice,省去了业务代码在activity中使用
     @Inject
-    lateinit var apiservice: ServiceApi//注入apiservice,省去了业务代码在activity中使用
+lateinit var cartApi:CartApi  //同一个activity不能绑定多个component
+    lateinit var application:WochuApplication
     var rv: RecyclerView? = null
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_scrolling)
@@ -46,11 +50,11 @@ val toolBar:Toolbar by bindView(R.id.toolbar)
                     .setAction("Action", null).show()
         })
 
-
 //        DaggerMainComponent.builder().build().inject(this)
-        (application as WochuApplication).getApiComponent().inject(this)
+//        (application as WochuApplication).getApiComponent().inject(this)
         getDataFromServer()
-        startActivity(Intent(this,TestAct::class.java))
+        application = WochuApplication.instance()
+        startActivityForResult(Intent(this,TestAct::class.java),0)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -77,18 +81,26 @@ val toolBar:Toolbar by bindView(R.id.toolbar)
         var jsonObject = JSONObject()
         jsonObject.put("parentId", 0)
 
-        apiservice.getCateGory(jsonObject.toString()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ coments ->
-//                    println(coments.data[0].name)
-//                    recyclerView.setAdapter(RootCategoryAdapter(this,coments.data))
-
-                    rv!!.setAdapter(RootCategoryAdapter(this, coments.data))
-
-                }, { error ->
-                    error.printStackTrace()
-//                    ToastText(error.toString())
-                })
+//        apiservice.getCateGory(jsonObject).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+//                .subscribe({ coments ->
+////                    println(coments.data[0].name)
+////                    recyclerView.setAdapter(RootCategoryAdapter(this,coments.data))
+//
+//                    rv!!.setAdapter(RootCategoryAdapter(this, coments.data))
+//
+//                }, { error ->
+//                    error.printStackTrace()
+////                    ToastText(error.toString())
+//                })
     }
 
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        application.getApi_TokenComponent(application.token).inject(this)
+        val jsonObject = JSONObject().put("deviceNumber", Utils.getDeviceid(this))
+        cartApi.getCartList(ApiConfig.URL_CART_COUNT,jsonObject).observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io()).subscribe { json->
+            println(json)
+        }
+    }
 }
