@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- 字体size -->
+    <dimen name="size_tiny">10sp</dimen>
+    <dimen name="size_little">12sp</dimen>
+    <dimen name="size_small">14sp</dimen>
+    <dimen name="size_normal">16sp</dimen>
+    <dimen name="size_big">18sp</dimen>
+    <dimen name="size_xbig">20sp</dimen>
+    <!-- 边距 -->
+    <dimen name="zero">0dp</dimen>
+    <dimen name="line">0.5dp</dimen>
+    <dimen name="line_1">1dp</dimen>
+    <dimen name="sssmall">2dp</dimen>
+    <dimen name="ssmall">4dp</dimen>
+    <dimen name="small">6dp</dimen>
+    <dimen name="normal_8">8dp</dimen>
+    <dimen name="normal_10">10dp</dimen>
+    <dimen name="large_12">12dp</dimen>
+    <dimen name="large_15">15dp</dimen>
+    <dimen name="large_20">20dp</dimen>
+    <dimen name="large_25">25dp</dimen>
+    <dimen name="large_30">30dp</dimen>
+    <dimen name="large_35">35dp</dimen>
+    <dimen name="large_40">40dp</dimen>
+    <dimen name="large_50">50dp</dimen>
+    <dimen name="large_80">80dp</dimen>
+    <!-- Pull to refresh -->
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+    <dimen name="course_cover_heigh">326dp</dimen>
+    <dimen name="top_height">44dp</dimen>
+
+</resources>

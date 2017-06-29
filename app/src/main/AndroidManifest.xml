@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wicture.wochukotlin">
+    package="com.wicture.wochu">
 
     <application
         android:name=".WochuApplication"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".act.MainAct"
+            android:name=".business.main.MainAct"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".act.TestAct">
+        <activity android:name=".business.login.LoginAct"
+            android:windowSoftInputMode="adjustPan"
+            >
 
         </activity>
     </application>
@@ -28,4 +30,5 @@
     <meta-data
         android:name="com.wicture.wochukotlin.img.WochuGlideModule"
         android:value="GlideModule" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 </manifest>

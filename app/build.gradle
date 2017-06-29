@@ -5,7 +5,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.wicture.wochukotlin"
+        applicationId "com.wicture.wochu"
         minSdkVersion 20
         targetSdkVersion 25
         versionCode 1
@@ -28,14 +28,14 @@ android {
     buildTypes {
         debug{
 
-            buildConfigField "String", "API_SERVER_HOST", "\"http://192.168.15.230:9999\""
-            buildConfigField "String", "PAY_SERVER_HOST","\"http://dev1.i-kitchen.cn:9093\""
-            buildConfigField "String", "CART_HOST","\"http://192.168.15.230:9999\""
-            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"http://hshop.wochu.cn\""
-//            buildConfigField "String", "API_SERVER_HOST", "\"https://api5.wochu.cn/\""
-//            buildConfigField "String", "PAY_SERVER_HOST","\"https://api4.wochu.cn/\""
-//            buildConfigField "String", "CART_HOST","\"https://api5.wochu.cn/\""
-//            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"https://wmall.wochu.cn/\""
+//            buildConfigField "String", "API_SERVER_HOST", "\"http://192.168.15.230:9999\""
+//            buildConfigField "String", "PAY_SERVER_HOST","\"http://dev1.i-kitchen.cn:9093\""
+//            buildConfigField "String", "CART_HOST","\"http://192.168.15.230:9999\""
+//            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"http://hshop.wochu.cn\""
+            buildConfigField "String", "API_SERVER_HOST", "\"https://api5.wochu.cn/\""
+            buildConfigField "String", "PAY_SERVER_HOST","\"https://api4.wochu.cn/\""
+            buildConfigField "String", "CART_HOST","\"https://api5.wochu.cn/\""
+            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"https://wmall.wochu.cn/\""
 //            buildConfigField "String", "pi","\"Android\""
 //            buildConfigField "String", "campaign","\"40600\""
         }
@@ -68,6 +68,7 @@ dependencies {
     //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     //        exclude group: 'com.android.support', module: 'support-annotations'
     //    })
+    compile project(':lib_thridlibrary')
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     /* RxJava2 */
@@ -75,6 +76,7 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     //    provided 'org.glassfish:javax.annotation:10.0-b28'
     compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
@@ -90,5 +92,7 @@ dependencies {
     compile 'com.google.dagger:dagger:2.9'
     kapt 'com.google.dagger:dagger-compiler:2.9'
     kapt "com.android.databinding:compiler:2.3.2"
+    compile 'com.github.RoyWallace:BottomNavigationBar:v0.1'
+    compile 'com.github.yalantis:ucrop:2.2.1'
     androidTestCompile 'junit:junit:4.12'
 }

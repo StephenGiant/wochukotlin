@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".business.main.MainAct">
+    <data>
+        <variable
+            name="aaa"
+            type="com.wicture.wochu.data.BaseData"
+
+            />
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<android.support.design.widget.BottomNavigationView
+    android:id="@+id/bottom_navi"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    app:menu="@menu/navigation"
+    >
+</android.support.design.widget.BottomNavigationView>
+    <FrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </FrameLayout>
+</RelativeLayout>
+    </layout>

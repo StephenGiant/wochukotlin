@@ -1,39 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.wicture.wochukotlin.view.PhoneNumberEdittext
+    <ImageView
+        android:id="@+id/backGound_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/wochulogin"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="264dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+
+        >
+    <com.wicture.wochu.view.PhoneEdittext
         android:id="@+id/et_account"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="44dp"
         android:maxLength="13"
         android:hint="请输入手机号"
+        android:textSize="18sp"
+        android:textColorHint="#cccccc"
         android:inputType="number"
+        android:background="@null"
         />
-<com.wicture.wochukotlin.view.PasswordEdittext
+        <View
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5"
+
+            />
+<com.wicture.wochu.view.PasswordEdittext
     android:id="@+id/et_password"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="26dp"
+    android:layout_marginRight="26dp"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:textSize="16sp"
+    android:layout_height="44dp"
+    android:textSize="18sp"
+    android:hint="输入密码"
+    android:textColorHint="#cccccc"
     android:inputType="textPassword"
+    android:background="@null"
     />
 <Button
     android:id="@+id/btn_login"
     android:padding="10dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="26dp"
+    android:layout_marginRight="26dp"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="47dp"
     android:text="登 陆"
     android:textSize="18sp"
+    style="@style/MyButton"
     />
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginTop="24dp"
+            >
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册"
+                android:textSize="16sp"
+                android:textColor="#668528"
+                />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="忘记密码"
+                android:textSize="16sp"
+                android:textColor="#668528"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+<View
+    android:layout_above="@id/ll_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#88222222"
+    android:visibility="invisible"
+    />
+</RelativeLayout>
