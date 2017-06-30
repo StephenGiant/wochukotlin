@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView.Adapter
  * int类型的数据要封装成Interger 否则remove的时候会很蛋疼
  * Created by qianpeng on 2017/6/8.
  */
-abstract class MyBaseAdapter<T, VH : RecyclerView.ViewHolder>(activity: Activity, data: java.util.List<T>) : Adapter<VH>() {
+abstract class MyBaseAdapter<T, VH : RecyclerView.ViewHolder>(activity: Activity, data: MutableList<T>) : Adapter<VH>() {
 
     var mActivity = activity
     var mDatas  = data;
@@ -37,15 +37,14 @@ abstract class MyBaseAdapter<T, VH : RecyclerView.ViewHolder>(activity: Activity
 
     }
 
-    fun refreshData(datas: java.util.List<T>) {
+    fun refreshData(datas: MutableList<T>) {
         mDatas = datas
         notifyDataSetChanged()
     }
 
     fun removeUItem(position: Int) {
         //当t不是int型的时候适合,元素如果是int型最好使用Integer
-         mDatas.remove(position)
-
+         mDatas.removeAt(position)
             notifyItemRemoved(position)
 
         //这样刷新节省资源

@@ -67,6 +67,7 @@ object ApiConfig {
      * 首页数据
      */
     val URL_ACTSAMEND = "actsamend"
+    val URL_GET_APP_LAYOUT_AMEND =  "layoutamend"
     /**
      * 获取大分类目录（一级&二级分类）
      */

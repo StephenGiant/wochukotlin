@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="indexViewModel"
@@ -10,10 +9,11 @@
             />
     </data>
 <LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="24dp"
-    android:background="@color/white"
+  android:background="@color/white"
     >
     <TextView
         android:layout_width="wrap_content"
@@ -21,36 +21,56 @@
         android:text="首页"
         android:textSize="16sp"
         />
+    <!--  blocksDescendants 防止子控件获取焦点，导致初始显示位置不对-->
 <com.opensource.pulltorefresh.view.PullToRefreshScrollView
+    android:id="@+id/ptr_index"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    ptr:ptrMode="disabled"
+    android:scrollbars="none"
+    android:descendantFocusability="blocksDescendants"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
         <!--    轮播图           -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <com.wicture.wochu.view.FlyBanner
             android:id="@+id/banner_index"
             android:layout_width="match_parent"
-            android:layout_height="174dp">
+            android:layout_height="174dp"
+            android:layout_centerInParent="true"
+            >
 
         </com.wicture.wochu.view.FlyBanner>
+        </RelativeLayout>
         <!--   icons-->
         <android.support.v7.widget.RecyclerView
+            android:padding="2dp"
             android:id="@+id/rv_icons"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="180dp"
+            >
 
         </android.support.v7.widget.RecyclerView>
         <!-- 主页展示页-->
-        <android.support.v7.widget.RecyclerView
+        <com.wicture.wochu.view.NoScrollRecyclerview
             android:id="@+id/rv_mainPage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:overScrollMode="never"
+            >
 
-        </android.support.v7.widget.RecyclerView>
+        </com.wicture.wochu.view.NoScrollRecyclerview>
+
     </LinearLayout>
 </com.opensource.pulltorefresh.view.PullToRefreshScrollView>
+
 </LinearLayout>
 </layout>

@@ -12,13 +12,12 @@ import com.bumptech.glide.Glide
 import com.wicture.com.wochu.business.MyBaseAdapter
 import com.wicture.wochu.R
 import com.wicture.wochu.data.Category
-import java.util.List
 
 /**
  * Created by qianpeng on 2017/6/9.
  */
 class RootCategoryAdapter : MyBaseAdapter<Category, RootCategoryAdapter.CategoryViewHolder> {
-    constructor(activity: Activity, data: List<Category>) : super(activity, data)
+    constructor(activity: Activity, data: MutableList<Category>) : super(activity, data)
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(mActivity).inflate(R.layout.item_category, parent, false) as View

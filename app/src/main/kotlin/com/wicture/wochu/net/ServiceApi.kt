@@ -33,7 +33,12 @@ interface ServiceApi {
      */
     @POST(ApiConfig.URL_REGISTER)
     fun registAccount(@Body body: Body): Observable<BaseData<RegistResponse>>
-
+    /**
+     * 获取分类
+     * 使用说明：输入url和请求参数，然后自行封装响应
+     */
+    @GET(ApiConfig.URL_DIR+ApiConfig.URL_APP+"{url}")
+    fun getAPPDataFromNet(@Path("url")url :String,@Query("parameters")parameters: JSONObject):Observable<BaseData<JsonObject>>
 
 
 }

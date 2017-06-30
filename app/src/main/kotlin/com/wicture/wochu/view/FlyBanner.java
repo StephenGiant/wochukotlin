@@ -124,7 +124,7 @@ private AutoPlayHandler mAutoPlayHandler  = new AutoPlayHandler() {
 
     private void init(Context context, AttributeSet attrs) {
         mPointsIsVisible = true;
-        mPointPosition = 0;
+        mPointPosition = 1;
         imageViews = new ArrayList<ImageView>();
 
         //mPointContainerBackgroundDrawable
@@ -153,7 +153,7 @@ private AutoPlayHandler mAutoPlayHandler  = new AutoPlayHandler() {
         pointContainerRl.setPadding(0, 10, 0, 10);
         //设定指示器容器布局及位置
         LayoutParams pointContainerLp = new LayoutParams(RMP, RWP);
-        pointContainerLp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM|RelativeLayout.ALIGN_PARENT_LEFT);
+        pointContainerLp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         addView(pointContainerRl, pointContainerLp);
         //设置指示器容器
         mPointRealContainerLl = new LinearLayout(context);
