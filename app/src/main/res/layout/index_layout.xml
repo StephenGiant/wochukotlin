@@ -50,14 +50,18 @@
         </com.wicture.wochu.view.FlyBanner>
         </RelativeLayout>
         <!--   icons-->
-        <android.support.v7.widget.RecyclerView
-            android:padding="2dp"
+        <com.wicture.wochu.view.NoScrollRecyclerview
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:id="@+id/rv_icons"
             android:layout_width="match_parent"
             android:layout_height="180dp"
+            android:background="@color/white"
             >
 
-        </android.support.v7.widget.RecyclerView>
+        </com.wicture.wochu.view.NoScrollRecyclerview>
         <!-- 主页展示页-->
         <com.wicture.wochu.view.NoScrollRecyclerview
             android:id="@+id/rv_mainPage"

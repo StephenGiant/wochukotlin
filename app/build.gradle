@@ -43,14 +43,14 @@ android {
             minifyEnabled false
 
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "API_SERVER_HOST", "\"http://192.168.15.230:9999\""
-            buildConfigField "String", "PAY_SERVER_HOST","\"http://dev1.i-kitchen.cn:9093\""
-            buildConfigField "String", "CART_HOST","\"http://192.168.15.230:9999\""
-            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"http://hshop.wochu.cn\""
-//            buildConfigField "String", "API_SERVER_HOST", "\"https://api5.wochu.cn/\""
-//            buildConfigField "String", "PAY_SERVER_HOST","\"https://api4.wochu.cn/\""
-//            buildConfigField "String", "CART_HOST","\"https://api5.wochu.cn/\""
-//            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"https://wmall.wochu.cn/\""
+//            buildConfigField "String", "API_SERVER_HOST", "\"http://192.168.15.230:9999\""
+//            buildConfigField "String", "PAY_SERVER_HOST","\"http://dev1.i-kitchen.cn:9093\""
+//            buildConfigField "String", "CART_HOST","\"http://192.168.15.230:9999\""
+//            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"http://hshop.wochu.cn\""
+            buildConfigField "String", "API_SERVER_HOST", "\"https://api5.wochu.cn/\""
+            buildConfigField "String", "PAY_SERVER_HOST","\"https://api4.wochu.cn/\""
+            buildConfigField "String", "CART_HOST","\"https://api5.wochu.cn/\""
+            buildConfigField "String", "IMAGE_UPLOAD_HOST","\"https://wmall.wochu.cn/\""
 //            buildConfigField "String", "pi","\"Android\""
 //            buildConfigField "String", "campaign","\"40601\""
 
@@ -95,5 +95,6 @@ dependencies {
     compile 'com.github.RoyWallace:BottomNavigationBar:v0.1'
     compile 'com.github.yalantis:ucrop:2.2.1'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.jakewharton:butterknife:8.4.0'
     androidTestCompile 'junit:junit:4.12'
 }

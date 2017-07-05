@@ -41,7 +41,26 @@ open class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             exception.printStackTrace()
         }
     }
+    fun setNetImage_Large(context:Context,resoures:Int,url:String){
+        try {
 
+            val imageView = itemView!!.findViewById(resoures) as? ImageView
+            GlideUtil.setLargeImgFromNet(context,url,imageView!!)
+
+        }catch (exception :KotlinNullPointerException){
+            exception.printStackTrace()
+        }
+    }
+    fun setNetImage_Middle(context:Context,resoures:Int,url:String){
+        try {
+
+            val imageView = itemView!!.findViewById(resoures) as? ImageView
+            GlideUtil.setMiddleImgFromNet(context,url,imageView!!)
+
+        }catch (exception :KotlinNullPointerException){
+            exception.printStackTrace()
+        }
+    }
     fun setText(text:String,resoures: Int){
         val textView = itemView!!.findViewById(resoures) as TextView
         textView.text = text
